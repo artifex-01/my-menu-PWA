@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "My Menu",
+    "slug": "my-menu",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FF8A00"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mymenu.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FF8A00"
+      },
+      "package": "com.mymenu.app",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "97efd3ad-7134-4101-a0da-a5df81b20cf5"
+      }
+    }
+  }
+}
