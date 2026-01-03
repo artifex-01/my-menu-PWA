@@ -12,6 +12,7 @@
 }
 
 /* Typography */
+/* Typography */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Roboto',
         'Helvetica Neue', sans-serif;
@@ -19,6 +20,23 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background: var(--app-bg-primary);
     color: var(--app-text-primary);
+
+    /* Fixed Layout for PWA */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Prevent body scroll, let IonContent handle it */
+    position: fixed;
+    /* Prevent iOS bounce */
+}
+
+html,
+#root,
+ion-app {
+    width: 100%;
+    height: 100%;
 }
 
 /* ================================
@@ -35,11 +53,16 @@ body {
 /* ================================
    APP SHELL - Base Layout
    ================================ */
+/* ================================
+   APP SHELL - Base Layout
+   ================================ */
 .app-shell {
     display: flex;
-    min-height: 100vh;
+    height: 100%;
+    /* Changed from min-height: 100vh */
     width: 100%;
     background: var(--app-bg-primary);
+    overflow: hidden;
 }
 
 /* Main Content Area - Mobile First */
@@ -47,9 +70,12 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100%;
+    /* Changed from min-height: 100vh */
     width: 100%;
     position: relative;
+    overflow: hidden;
+    /* Important: Contain IonContent */
 }
 
 /* ================================
@@ -100,7 +126,8 @@ body {
     .main-content-area>.ion-page {
         width: 100% !important;
         max-width: 100% !important;
-        min-height: 100vh;
+        height: 100%;
+        /* Changed from min-height: 100vh */
         position: relative !important;
         left: auto !important;
         right: auto !important;
@@ -109,6 +136,7 @@ body {
         background: var(--app-bg-primary);
         box-shadow: none;
         border: none;
+        /* Desktop specific scroll handling if needed */
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -133,7 +161,8 @@ body {
     .main-content-area>.ion-page {
         width: var(--content-max-width) !important;
         max-width: var(--content-max-width) !important;
-        min-height: 100vh;
+        height: 100%;
+        /* Changed from min-height: 100vh */
         position: relative !important;
         left: auto !important;
         right: auto !important;
@@ -143,6 +172,8 @@ body {
         box-shadow: 0 0 60px rgba(0, 0, 0, 0.4);
         border-left: 1px solid var(--app-border-light);
         border-right: 1px solid var(--app-border-light);
+        /* Ensure border radius if desired */
+        overflow: hidden;
     }
 
     /* ================================
@@ -339,8 +370,10 @@ ion-app::-webkit-scrollbar,
 }
 
 .layout-bottom-spacer {
-    height: var(--app-nav-height);
-    margin-bottom: env(safe-area-inset-bottom);
+    /* Safe area: Navbar height + Inset + Buffer */
+    height: calc(var(--app-nav-height) + env(safe-area-inset-bottom) + 20px);
+    width: 100%;
+    margin-bottom: 0;
 }
 
 /* Hide bottom spacer on desktop (no bottom nav) */
