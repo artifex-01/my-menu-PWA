@@ -1,0 +1,226 @@
+/* Login Page - Auto Theme */
+
+.login-content {
+    --background: var(--app-bg-primary);
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    padding: 24px 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo-container {
+    margin-bottom: 32px;
+}
+
+.logo-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 28px;
+    background: var(--app-bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--app-border-light);
+    box-shadow: 0 8px 32px var(--app-shadow-md);
+}
+
+.logo-icon {
+    font-size: 48px;
+    color: var(--app-primary);
+}
+
+/* Title */
+.login-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    text-align: center;
+    margin: 0 0 12px 0;
+}
+
+.login-subtitle {
+    font-size: 15px;
+    color: var(--app-text-muted);
+    text-align: center;
+    line-height: 24px;
+    margin: 0 0 40px 0;
+}
+
+/* Input Section */
+.input-section {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.input-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.phone-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.country-code-box {
+    display: flex;
+    align-items: center;
+    background: var(--app-input-bg);
+    border: 1px solid var(--app-input-border);
+    border-radius: 16px;
+    padding: 0 16px;
+    height: 56px;
+}
+
+.flag-emoji {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.country-code {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+}
+
+.phone-input-wrapper {
+    flex: 1;
+    background: var(--app-input-bg);
+    border: 1px solid var(--app-input-border);
+    border-radius: 16px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    transition: all 0.25s ease;
+}
+
+.phone-input-wrapper:focus-within {
+    border-color: var(--app-input-focus-border);
+    box-shadow: 0 0 0 3px var(--app-input-focus-shadow);
+}
+
+.phone-input-wrapper.error {
+    border-color: var(--app-danger);
+}
+
+.phone-input {
+    --padding-start: 0;
+    --padding-end: 0;
+    --color: var(--app-text-primary);
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.error-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.error-icon {
+    color: var(--app-danger);
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+.error-text {
+    font-size: 12px;
+    color: var(--app-danger);
+}
+
+/* Primary Button */
+.primary-button {
+    --background: linear-gradient(135deg, var(--app-gradient-start), var(--app-gradient-end));
+    --border-radius: 16px;
+    --padding-top: 18px;
+    --padding-bottom: 18px;
+    --box-shadow: 0 8px 24px var(--app-primary-glow);
+    font-weight: 600;
+    font-size: 16px;
+    width: 100%;
+    margin: 0;
+}
+
+.primary-button.disabled {
+    --background: var(--app-border);
+    --box-shadow: none;
+    opacity: 0.6;
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 28px 0;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--app-border);
+}
+
+.divider-text {
+    font-size: 12px;
+    color: var(--app-text-muted);
+    padding: 0 16px;
+}
+
+/* Google Button */
+.google-button {
+    --background: var(--app-bg-card);
+    --border-color: var(--app-border);
+    --border-radius: 16px;
+    --color: var(--app-text-primary);
+    font-weight: 500;
+    font-size: 15px;
+    width: 100%;
+    margin: 0;
+}
+
+.google-g {
+    font-size: 20px;
+    font-weight: 700;
+    color: #4285F4;
+    margin-right: 10px;
+}
+
+/* Guest Button */
+.guest-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 24px;
+    padding: 14px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--app-primary);
+    font-size: 15px;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.guest-button:hover {
+    opacity: 0.8;
+}
+
+.guest-button ion-icon {
+    font-size: 18px;
+}

@@ -1,0 +1,394 @@
+/* Order History Page - New Design */
+
+.orders-content {
+    --background: var(--app-bg-primary);
+}
+
+/* Header */
+.orders-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    padding-top: calc(16px + env(safe-area-inset-top));
+    background: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.orders-back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-bg-surface);
+    border: 1px solid var(--app-border-light);
+    font-size: 20px;
+    color: var(--app-text-primary);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.orders-back-btn:active {
+    background: var(--app-bg-elevated);
+}
+
+.header-spacer {
+    width: 40px;
+    flex-shrink: 0;
+}
+
+.orders-page-title {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+}
+
+/* Filter Tabs */
+.orders-filters {
+    display: flex;
+    gap: 12px;
+    padding: 16px 20px;
+    overflow-x: auto;
+    background: transparent;
+    scrollbar-width: none;
+    padding-bottom: 16px;
+}
+
+.orders-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--app-border-light);
+    background: var(--app-bg-card);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-secondary);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-chip.active {
+    background: var(--app-primary);
+    border-color: var(--app-primary);
+    color: white;
+}
+
+.filter-icon {
+    font-size: 16px;
+}
+
+/* Section Header */
+.orders-section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--app-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 24px 20px 12px;
+}
+
+/* Cards List */
+.orders-list-container {
+    padding: 0 20px 100px;
+}
+
+.new-order-card {
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px var(--app-shadow);
+    border: 1px solid var(--app-border-light);
+}
+
+/* Card Top Row */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.card-restaurant-info {
+    display: flex;
+    gap: 12px;
+}
+
+.card-restaurant-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.card-name-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-restaurant-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 4px 0;
+}
+
+.card-order-summary {
+    font-size: 13px;
+    color: var(--app-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+
+.card-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+}
+
+/* Card Middle Row */
+.card-details {
+    font-size: 12px;
+    color: var(--app-text-muted);
+    margin-bottom: 16px;
+    padding-left: 60px;
+}
+
+/* Card Divider */
+.card-divider {
+    height: 1px;
+    background: var(--app-border-light);
+    margin: 0 -16px 12px;
+}
+
+/* Card Bottom Row */
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Status Badges */
+.card-status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.card-status-badge.completed {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--app-success);
+}
+
+.card-status-badge.canceled {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--app-danger);
+}
+
+.card-status-pill {
+    background: var(--app-bg-surface);
+    color: var(--app-text-secondary);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Action Buttons */
+.card-btn-reorder {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 138, 0, 0.1);
+    color: var(--app-primary);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.card-btn-rate {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    color: var(--app-text-secondary);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.card-btn-details {
+    background: transparent;
+    border: none;
+    color: var(--app-text-muted);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.no-more-orders {
+    text-align: center;
+    color: #9CA3AF;
+    font-size: 14px;
+    margin-top: 24px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .orders-content {
+        --background: #111;
+    }
+
+    .orders-page-header,
+    .orders-filters,
+    .new-order-card {
+        background: #1A1A1A;
+    }
+
+    .orders-page-header {
+        border-bottom-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .orders-page-title,
+    .orders-back-btn,
+    .card-restaurant-name,
+    .card-price {
+        color: #FFF;
+    }
+
+    .filter-chip {
+        background: #2A2A2A;
+        border-color: #333;
+        color: #E5E5E5;
+    }
+
+    .filter-chip.active {
+        background: #F97316;
+        border-color: #F97316;
+        color: white;
+    }
+
+    .card-details,
+    .card-order-summary {
+        color: #9CA3AF;
+    }
+
+    .card-divider {
+        background: #2A2A2A;
+    }
+
+    .card-status-badge.completed {
+        background: rgba(22, 163, 74, 0.2);
+        color: #4ADE80;
+    }
+
+    .card-status-badge.canceled {
+        background: rgba(220, 38, 38, 0.2);
+        color: #F87171;
+    }
+
+    .card-status-pill {
+        background: #2A2A2A;
+        color: #D1D5DB;
+    }
+
+    .card-btn-reorder {
+        background: rgba(249, 115, 22, 0.15);
+        color: #FB923C;
+    }
+
+    .card-btn-rate {
+        color: #D1D5DB;
+    }
+}
+
+body.dark .orders-content {
+    --background: #111;
+}
+
+body.dark .orders-page-header,
+body.dark .orders-filters,
+body.dark .new-order-card {
+    background: #1A1A1A;
+}
+
+body.dark .orders-page-header {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark .orders-page-title,
+body.dark .orders-back-btn,
+body.dark .card-restaurant-name,
+body.dark .card-price {
+    color: #FFF;
+}
+
+body.dark .filter-chip {
+    background: #2A2A2A;
+    border-color: #333;
+    color: #E5E5E5;
+}
+
+body.dark .filter-chip.active {
+    background: #F97316;
+    border-color: #F97316;
+    color: white;
+}
+
+body.dark .card-details,
+body.dark .card-order-summary {
+    color: #9CA3AF;
+}
+
+body.dark .card-divider {
+    background: #2A2A2A;
+}
+
+body.dark .card-status-badge.completed {
+    background: rgba(22, 163, 74, 0.2);
+    color: #4ADE80;
+}
+
+body.dark .card-status-badge.canceled {
+    background: rgba(220, 38, 38, 0.2);
+    color: #F87171;
+}
+
+body.dark .card-status-pill {
+    background: #2A2A2A;
+    color: #D1D5DB;
+}
+
+body.dark .card-btn-reorder {
+    background: rgba(249, 115, 22, 0.15);
+    color: #FB923C;
+}
+
+body.dark .card-btn-rate {
+    color: #D1D5DB;
+}

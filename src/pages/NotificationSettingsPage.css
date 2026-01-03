@@ -1,0 +1,153 @@
+/* Notification Settings Page Styles */
+
+.notif-page-content {
+    --background: var(--app-bg-primary);
+}
+
+.notif-section-header {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--app-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 24px;
+    margin-bottom: 12px;
+    margin-top: 24px;
+}
+
+.notif-card {
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    margin: 0 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--app-border-light);
+    overflow: hidden;
+}
+
+.notif-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--app-border-light);
+    background: var(--app-bg-card);
+}
+
+.notif-item:last-child {
+    border-bottom: none;
+}
+
+.notif-info {
+    flex: 1;
+    padding-right: 16px;
+}
+
+.notif-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin-bottom: 4px;
+    display: block;
+}
+
+.notif-subtitle {
+    font-size: 13px;
+    color: var(--app-text-secondary);
+    line-height: 1.4;
+    display: block;
+}
+
+/* Toggle Switch */
+.notif-toggle {
+    width: 52px;
+    height: 32px;
+    background: #E5E5EA;
+    border-radius: 16px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+}
+
+.notif-toggle.checked {
+    background: var(--app-primary);
+}
+
+.notif-toggle-handle {
+    width: 28px;
+    height: 28px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.notif-toggle.checked .notif-toggle-handle {
+    transform: translateX(20px);
+}
+
+/* Pause All Card */
+.pause-all-card {
+    margin-top: 20px;
+}
+
+/* System Info Box */
+.system-info-box {
+    margin: 32px 20px 40px;
+    background: #FFF7ED;
+    /* Light Orange */
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.info-icon-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--app-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.info-icon-circle ion-icon {
+    color: white;
+    font-size: 14px;
+}
+
+.info-text {
+    font-size: 13px;
+    color: #7C2D12;
+    /* Dark Brown/Orange */
+    line-height: 1.5;
+}
+
+.info-link {
+    color: var(--app-primary);
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+    .notif-toggle {
+        background: var(--app-bg-surface);
+    }
+
+    .system-info-box {
+        background: rgba(255, 138, 0, 0.15);
+    }
+
+    .info-text {
+        color: var(--app-text-secondary);
+    }
+}

@@ -1,0 +1,158 @@
+/* Ionic Variables and Theming - Auto Light/Dark Mode */
+
+/* ========================================
+   LIGHT MODE (Default)
+   ======================================== */
+:root {
+  /* Background Colors */
+  --app-bg-primary: #F9F9FB;
+  --app-bg-surface: #FFFFFF;
+  --app-bg-card: #FFFFFF;
+  --app-bg-elevated: #FFFFFF;
+  --app-desktop-bg: #FFFFFF;
+
+  /* Layout */
+  --sidebar-width: 240px;
+
+  /* Text Colors */
+  --app-text-primary: #1C1C1E;
+  --app-text-secondary: #6E6E73;
+  --app-text-muted: #8E8E93;
+
+  /* Border & Dividers */
+  --app-border: #E5E5EA;
+  --app-border-light: #F2F2F7;
+
+  /* Shadows */
+  --app-shadow: rgba(0, 0, 0, 0.08);
+  --app-shadow-md: rgba(0, 0, 0, 0.12);
+  --app-shadow-lg: rgba(0, 0, 0, 0.16);
+
+  /* Accent / Primary */
+  --app-primary: #FF8A00;
+  --app-primary-light: rgba(255, 138, 0, 0.12);
+  --app-primary-glow: rgba(255, 138, 0, 0.25);
+
+  /* Gradient */
+  --app-gradient-start: #FF9F2D;
+  --app-gradient-end: #FF7A00;
+
+  /* Status Colors */
+  --app-success: #22C55E;
+  --app-danger: #EF4444;
+  --app-warning: #F59E0B;
+  --app-rating: #FFB800;
+  --app-rating-bg: rgba(255, 184, 0, 0.12);
+
+  /* Glassmorphism */
+  --app-glass-bg: rgba(255, 255, 255, 0.85);
+  --app-glass-border: rgba(0, 0, 0, 0.06);
+  --app-glass-blur: 20px;
+
+  /* Navigation */
+  --app-nav-bg: rgba(255, 255, 255, 0.92);
+  --app-nav-inactive: #8E8E93;
+  --app-nav-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  --app-nav-height: 90px;
+
+  /* Input */
+  --app-input-bg: #FFFFFF;
+  --app-input-border: #E5E5EA;
+  --app-input-focus-border: rgba(255, 138, 0, 0.5);
+  --app-input-focus-shadow: rgba(255, 138, 0, 0.15);
+
+  /* Ionic overrides */
+  --ion-background-color: var(--app-bg-primary);
+  --ion-text-color: var(--app-text-primary);
+  --ion-card-background: var(--app-bg-card);
+  --ion-toolbar-background: transparent;
+}
+
+/* ========================================
+   DARK MODE (System Preference)
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Background Colors */
+    --app-bg-primary: #0F1117;
+    --app-bg-surface: #171A23;
+    --app-bg-card: #1F2230;
+    --app-bg-elevated: #252839;
+    --app-desktop-bg: #0A0B0F;
+
+    /* Text Colors */
+    --app-text-primary: #FFFFFF;
+    --app-text-secondary: #A1A1AA;
+    --app-text-muted: #6B7280;
+
+    /* Border & Dividers */
+    --app-border: #2A2D3A;
+    --app-border-light: #1F2230;
+
+    /* Shadows */
+    --app-shadow: rgba(0, 0, 0, 0.4);
+    --app-shadow-md: rgba(0, 0, 0, 0.5);
+    --app-shadow-lg: rgba(0, 0, 0, 0.6);
+
+    /* Accent / Primary (same) */
+    --app-primary: #FF8A00;
+    --app-primary-light: rgba(255, 138, 0, 0.15);
+    --app-primary-glow: rgba(255, 138, 0, 0.3);
+
+    /* Rating */
+    --app-rating-bg: rgba(255, 184, 0, 0.15);
+
+    /* Glassmorphism */
+    --app-glass-bg: rgba(23, 26, 35, 0.85);
+    --app-glass-border: rgba(255, 255, 255, 0.08);
+
+    /* Navigation */
+    --app-nav-bg: rgba(23, 26, 35, 0.92);
+    --app-nav-inactive: #6B7280;
+    --app-nav-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+
+    /* Input */
+    --app-input-bg: #1F2230;
+    --app-input-border: #2A2D3A;
+    --app-input-focus-border: rgba(255, 138, 0, 0.4);
+    --app-input-focus-shadow: rgba(255, 138, 0, 0.1);
+
+    /* Ionic overrides */
+    --ion-background-color: var(--app-bg-primary);
+    --ion-text-color: var(--app-text-primary);
+    --ion-card-background: var(--app-bg-card);
+  }
+}
+
+/* ========================================
+   Ionic Color Palette (Both Modes)
+   ======================================== */
+:root {
+  --ion-color-primary: #FF8A00;
+  --ion-color-primary-rgb: 255, 138, 0;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #E67A00;
+  --ion-color-primary-tint: #FFB84D;
+
+  --ion-color-success: #22C55E;
+  --ion-color-success-rgb: 34, 197, 94;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #1EAD53;
+  --ion-color-success-tint: #38CB6E;
+
+  --ion-color-warning: #F59E0B;
+  --ion-color-warning-rgb: 245, 158, 11;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #D88B0A;
+  --ion-color-warning-tint: #F6A823;
+
+  --ion-color-danger: #EF4444;
+  --ion-color-danger-rgb: 239, 68, 68;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #D23C3C;
+  --ion-color-danger-tint: #F15757;
+}

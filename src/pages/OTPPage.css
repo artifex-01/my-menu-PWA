@@ -1,0 +1,200 @@
+/* OTP Page - Auto Theme */
+
+.otp-content {
+    --background: var(--app-bg-primary);
+}
+
+.otp-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 20px;
+}
+
+/* Back Button */
+.back-button {
+    background: var(--app-bg-card);
+    border: 1px solid var(--app-border-light);
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px var(--app-shadow);
+}
+
+.back-button ion-icon {
+    font-size: 20px;
+    color: var(--app-text-primary);
+}
+
+/* Title Section */
+.otp-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 12px 0;
+}
+
+.otp-subtitle {
+    font-size: 15px;
+    color: var(--app-text-muted);
+    line-height: 24px;
+    margin: 0 0 8px 0;
+}
+
+.otp-phone {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin: 0 0 40px 0;
+}
+
+.phone-display {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin: 0 0 40px 0;
+}
+
+/* OTP Inputs */
+.otp-input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.otp-input-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.otp-input {
+    width: 56px;
+    height: 64px;
+    background: var(--app-input-bg);
+    border: 2px solid var(--app-input-border);
+    border-radius: 16px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    text-align: center;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.otp-input:focus {
+    border-color: var(--app-primary);
+    box-shadow: 0 0 0 3px var(--app-input-focus-shadow);
+}
+
+.otp-input.filled {
+    border-color: var(--app-primary);
+    background: var(--app-primary-light);
+}
+
+.otp-underline {
+    display: none;
+}
+
+.otp-underline.focused,
+.otp-underline.filled {
+    display: none;
+}
+
+/* Resend Section */
+.resend-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.resend-text {
+    font-size: 14px;
+    color: var(--app-text-muted);
+}
+
+.timer-text {
+    font-weight: 600;
+    color: var(--app-primary);
+}
+
+.resend-button {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-primary);
+    cursor: pointer;
+    padding: 8px 16px;
+    margin-top: 8px;
+}
+
+.resend-button:hover {
+    text-decoration: underline;
+}
+
+/* Spacer */
+.flex-spacer {
+    flex: 1;
+}
+
+/* Verify Button */
+.verify-button {
+    --background: linear-gradient(135deg, var(--app-gradient-start), var(--app-gradient-end));
+    --border-radius: 16px;
+    --padding-top: 18px;
+    --padding-bottom: 18px;
+    --box-shadow: 0 8px 24px var(--app-primary-glow);
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+}
+
+.verify-button.disabled {
+    --background: var(--app-border);
+    --box-shadow: none;
+    opacity: 0.6;
+}
+
+/* Bottom Section */
+.bottom-section {
+    padding: 20px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+    background: var(--app-bg-primary);
+}
+
+.change-number-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.change-label {
+    font-size: 14px;
+    color: var(--app-text-muted);
+}
+
+.change-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-primary);
+}
+
+.change-number-button:hover .change-link {
+    text-decoration: underline;
+}

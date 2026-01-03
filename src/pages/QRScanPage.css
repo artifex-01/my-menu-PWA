@@ -1,0 +1,375 @@
+/* QR Scan Page - Auto Theme */
+
+.qr-scan-content {
+    --background: var(--app-bg-primary);
+}
+
+.scan-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px;
+    min-height: 100%;
+}
+
+.scan-instructions {
+    font-size: 16px;
+    color: var(--app-text-secondary);
+    text-align: center;
+    margin: 0 0 24px 0;
+    max-width: 280px;
+    line-height: 1.5;
+}
+
+/* Scanner Wrapper */
+.scanner-wrapper {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 32px;
+}
+
+/* Scanner Frame */
+.scanner-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--app-bg-secondary);
+}
+
+/* QR Reader Container - html5-qrcode styles */
+.qr-reader-container {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+}
+
+.qr-reader-container video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 16px;
+}
+
+/* Hide default html5-qrcode UI elements */
+#qr-reader__scan_region {
+    min-height: 100% !important;
+}
+
+#qr-reader__dashboard,
+#qr-reader__status_span,
+#qr-reader__header_message,
+#qr-reader__camera_selection,
+#qr-reader__camera_permission_button {
+    display: none !important;
+}
+
+#qr-reader img {
+    display: none !important;
+}
+
+/* Scanner Overlay */
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.scanner-corners {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+}
+
+.corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: var(--app-primary);
+    border-style: solid;
+}
+
+.corner.top-left {
+    top: 0;
+    left: 0;
+    border-width: 4px 0 0 4px;
+    border-radius: 12px 0 0 0;
+}
+
+.corner.top-right {
+    top: 0;
+    right: 0;
+    border-width: 4px 4px 0 0;
+    border-radius: 0 12px 0 0;
+}
+
+.corner.bottom-left {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 4px 4px;
+    border-radius: 0 0 0 12px;
+}
+
+.corner.bottom-right {
+    bottom: 0;
+    right: 0;
+    border-width: 0 4px 4px 0;
+    border-radius: 0 0 12px 0;
+}
+
+.scanner-line {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--app-primary), transparent);
+    animation: scan 2s ease-in-out infinite;
+    box-shadow: 0 0 12px var(--app-primary);
+}
+
+@keyframes scan {
+
+    0%,
+    100% {
+        top: 30px;
+    }
+
+    50% {
+        top: calc(100% - 50px);
+    }
+}
+
+/* Loading State */
+.scanner-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: var(--app-bg-secondary);
+    z-index: 20;
+}
+
+.scanner-loading ion-spinner {
+    width: 40px;
+    height: 40px;
+    color: var(--app-primary);
+}
+
+.scanner-loading span {
+    font-size: 14px;
+    color: var(--app-text-secondary);
+}
+
+/* Scanner Error */
+.scanner-error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 24px;
+    background: var(--app-bg-secondary);
+    z-index: 20;
+    text-align: center;
+}
+
+.scanner-error ion-icon {
+    font-size: 48px;
+    color: #ef4444;
+}
+
+.scanner-error span {
+    font-size: 14px;
+    color: var(--app-text-secondary);
+    line-height: 1.5;
+}
+
+.retry-btn {
+    margin-top: 8px;
+    padding: 10px 24px;
+    background: var(--app-primary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.retry-btn:active {
+    transform: scale(0.96);
+    opacity: 0.9;
+}
+
+/* Scan Success */
+.scan-success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 25;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.scan-success .success-icon {
+    font-size: 64px;
+    color: #22c55e;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.scan-success span {
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+}
+
+.scan-success .table-info {
+    font-size: 20px;
+    color: var(--app-primary);
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* Action Buttons */
+.scan-actions {
+    display: flex;
+    gap: 48px;
+    margin-bottom: 32px;
+}
+
+.action-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.action-button:active {
+    transform: scale(0.95);
+}
+
+.action-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.action-button:disabled:active {
+    transform: none;
+}
+
+.action-button ion-icon {
+    font-size: 26px;
+    color: var(--app-text-primary);
+    padding: 14px;
+    background: var(--app-bg-card);
+    border: 1px solid var(--app-border-light);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px var(--app-shadow);
+    transition: background 0.2s, color 0.2s;
+}
+
+.action-button.active ion-icon {
+    background: var(--app-primary);
+    color: white;
+    border-color: var(--app-primary);
+}
+
+.action-button span {
+    font-size: 12px;
+    color: var(--app-text-secondary);
+    font-weight: 500;
+}
+
+/* Help Text */
+.help-text {
+    font-size: 13px;
+    color: var(--app-text-muted);
+    text-align: center;
+    margin: 0;
+    max-width: 260px;
+    line-height: 1.5;
+}
+
+/* Retry Scan Button */
+.retry-scan-btn {
+    margin-top: 24px;
+    padding: 14px 32px;
+    background: var(--app-primary);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    box-shadow: 0 4px 16px rgba(var(--app-primary-rgb), 0.3);
+}
+
+.retry-scan-btn:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 360px) {
+    .scanner-wrapper {
+        max-width: 260px;
+    }
+
+    .scan-actions {
+        gap: 36px;
+    }
+}

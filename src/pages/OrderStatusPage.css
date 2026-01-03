@@ -1,0 +1,736 @@
+/* Order Status Page - Polished Premium Design */
+
+.order-status-content {
+    --background: var(--app-bg-primary);
+}
+
+/* Header */
+.status-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    padding-top: calc(16px + env(safe-area-inset-top));
+}
+
+.header-back-btn {
+    width: 44px;
+    height: 44px;
+    background: var(--app-bg-card);
+    border: 1px solid var(--app-border-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px var(--app-shadow);
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.header-back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--app-shadow-md);
+}
+
+.header-back-btn ion-icon {
+    font-size: 22px;
+    color: var(--app-text-primary);
+}
+
+.notification-btn {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.notification-btn:hover {
+    background: var(--app-bg-elevated);
+}
+
+.notification-btn ion-icon {
+    font-size: 24px;
+    color: var(--app-primary);
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Restaurant Order Info - Table number prominent */
+.restaurant-order-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.table-number {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--app-primary);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.order-number-small {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--app-text-muted);
+}
+
+/* Cafe Order Info - Order number only */
+.cafe-order-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.cafe-order-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cafe-order-number {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+}
+
+/* Venue Badge */
+.venue-badge-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px 8px;
+}
+
+.venue-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--app-bg-card);
+    border: 1px solid var(--app-border-light);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--app-text-secondary);
+}
+
+.venue-badge ion-icon {
+    font-size: 16px;
+}
+
+.venue-badge.restaurant {
+    border-color: rgba(249, 115, 22, 0.3);
+    background: rgba(249, 115, 22, 0.1);
+    color: #ea580c;
+}
+
+.venue-badge.cafe {
+    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.1);
+    color: #7c3aed;
+}
+
+.venue-badge.store {
+    border-color: rgba(6, 182, 212, 0.3);
+    background: rgba(6, 182, 212, 0.1);
+    color: #0891b2;
+}
+
+/* Legacy styles for compatibility */
+.table-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+}
+
+.order-number {
+    font-size: 13px;
+    color: var(--app-text-muted);
+    margin-top: 2px;
+}
+
+/* Cooking Hero */
+.cooking-hero {
+    position: relative;
+    margin: 8px 20px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 180px;
+    box-shadow: 0 8px 24px var(--app-shadow-md);
+}
+
+.cooking-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.time-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: var(--app-primary);
+    border-radius: 24px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px var(--app-primary-glow);
+}
+
+.time-badge .time-icon {
+    font-size: 18px;
+}
+
+/* Status Message */
+.status-message {
+    padding: 28px 24px 20px;
+    text-align: center;
+}
+
+.cooking-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 10px 0;
+}
+
+.cooking-subtitle {
+    font-size: 15px;
+    color: var(--app-text-muted);
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 280px;
+}
+
+/* Live Status */
+.live-status-section {
+    padding: 0 24px 24px;
+}
+
+.live-status-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--app-text-muted);
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.status-timeline {
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    padding-bottom: 24px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    width: 2px;
+    height: calc(100% - 40px);
+    background: var(--app-border);
+}
+
+.timeline-item:last-child .timeline-line {
+    display: none;
+}
+
+/* Completed state */
+.timeline-item.completed .timeline-dot {
+    background: var(--app-success);
+}
+
+.timeline-item.completed .timeline-dot ion-icon {
+    font-size: 24px;
+    color: white;
+}
+
+.timeline-item.completed .timeline-title {
+    color: var(--app-text-primary);
+    font-weight: 600;
+}
+
+.timeline-item.completed .timeline-line {
+    background: var(--app-success);
+}
+
+/* Active state */
+.timeline-item.active .timeline-dot {
+    background: var(--app-primary);
+}
+
+.timeline-item.active .dot-inner {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+}
+
+.timeline-item.active .pulse-ring {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--app-primary);
+    opacity: 0.3;
+    animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+.timeline-item.active .timeline-title {
+    color: var(--app-primary);
+    font-weight: 600;
+}
+
+.timeline-item.active .timeline-line {
+    background: linear-gradient(to bottom, var(--app-primary), var(--app-border));
+}
+
+/* Pending state */
+.timeline-item.pending .timeline-dot {
+    background: var(--app-bg-elevated);
+    border: 2px solid var(--app-border);
+}
+
+.timeline-item.pending .timeline-dot ion-icon {
+    font-size: 20px;
+    color: var(--app-text-muted);
+}
+
+.timeline-item.pending .timeline-title {
+    color: var(--app-text-muted);
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 8px;
+}
+
+.timeline-title {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.timeline-time {
+    font-size: 13px;
+    color: var(--app-text-muted);
+}
+
+.timeline-subtitle {
+    font-size: 13px;
+    color: var(--app-text-muted);
+    font-style: italic;
+}
+
+/* Order Summary Card */
+.order-summary-card {
+    margin: 0 20px 16px;
+    padding: 20px;
+    background: var(--app-bg-card);
+    border: 1px solid var(--app-border-light);
+    border-radius: 20px;
+    box-shadow: 0 4px 16px var(--app-shadow);
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.summary-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+}
+
+.summary-count {
+    font-size: 14px;
+    color: var(--app-text-muted);
+}
+
+.order-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--app-border-light);
+}
+
+.order-item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.item-qty {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--app-primary);
+    min-width: 28px;
+}
+
+.item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+}
+
+.item-custom {
+    font-size: 13px;
+    color: var(--app-text-muted);
+    margin-top: 3px;
+}
+
+.item-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+}
+
+.summary-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 16px;
+}
+
+.total-label {
+    font-size: 15px;
+    color: var(--app-text-muted);
+}
+
+.total-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+}
+
+/* Missing Button */
+.missing-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.missing-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-bg-elevated);
+    border: 1px solid var(--app-border);
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--app-text-muted);
+}
+
+.missing-text {
+    font-size: 14px;
+    color: var(--app-text-muted);
+}
+
+/* Bottom Actions */
+.bottom-actions {
+    display: flex;
+    gap: 12px;
+    padding: 16px 20px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+}
+
+.menu-action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 20px;
+    background: var(--app-bg-card);
+    border: 1.5px solid var(--app-border);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.menu-action-btn:hover {
+    background: var(--app-bg-elevated);
+    border-color: var(--app-text-muted);
+}
+
+.menu-action-btn:active {
+    transform: scale(0.98);
+}
+
+.menu-action-btn ion-icon {
+    font-size: 22px;
+    color: var(--app-text-primary);
+}
+
+.menu-action-btn span {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+}
+
+.pay-action-btn {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px;
+    background: var(--app-primary);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px var(--app-primary-glow);
+    transition: all 0.2s ease;
+}
+
+.pay-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--app-primary-glow);
+}
+
+.pay-action-btn:active {
+    transform: scale(0.98);
+}
+
+.pay-action-btn svg {
+    width: 22px;
+    height: 22px;
+    stroke: white;
+}
+
+.pay-action-btn span {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+}
+
+/* Order Title (without table) */
+.order-title-main {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+}
+
+/* Order Completed Popup */
+.completed-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.completed-popup {
+    width: 100%;
+    max-width: 340px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-radius: 24px;
+    padding: 40px 28px 32px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(16, 185, 129, 0.4);
+    animation: popBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popBounce {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.completed-icon-circle {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    animation: iconPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s backwards;
+}
+
+@keyframes iconPop {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.completed-icon-circle span {
+    font-size: 40px;
+}
+
+.completed-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    margin: 0 0 8px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.completed-order-num {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fef08a;
+    margin: 0 0 12px 0;
+    letter-spacing: 1px;
+}
+
+/* Restaurant popup - Table number prominent */
+.completed-table-num {
+    font-size: 36px;
+    font-weight: 900;
+    color: white;
+    margin: 0 0 4px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.completed-order-num-small {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 12px 0;
+}
+
+.completed-message {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 28px 0;
+    line-height: 1.5;
+}
+
+.completed-btn {
+    width: 100%;
+    padding: 18px;
+    background: white;
+    color: #059669;
+    border: none;
+    border-radius: 16px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.completed-btn:active {
+    transform: scale(0.97);
+}
+
+/* Cafe Theme for Completed Popup */
+.completed-popup.cafe-theme {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+}
+
+.completed-popup.cafe-theme .completed-btn {
+    color: #7c3aed;
+}

@@ -1,0 +1,1102 @@
+/* Favorites Page - Mobile + Desktop */
+
+.favorites-content {
+    --background: var(--app-bg-primary);
+}
+
+/* ============================================
+   SHOW/HIDE VIEWS BASED ON SCREEN SIZE
+   ============================================ */
+.mobile-view {
+    display: block;
+}
+
+.desktop-view {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .mobile-view {
+        display: none !important;
+    }
+
+    .desktop-view {
+        display: block !important;
+    }
+}
+
+/* ============================================
+   MOBILE VIEW STYLES (Unchanged)
+   ============================================ */
+
+/* Header */
+.mobile-view .favorites-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    padding-top: calc(16px + env(safe-area-inset-top));
+    background: transparent;
+}
+
+.mobile-view .fav-back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-bg-surface);
+    border: 1px solid var(--app-border-light);
+    font-size: 20px;
+    color: var(--app-text-primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.mobile-view .fav-back-btn:active {
+    background: var(--app-bg-elevated);
+}
+
+.mobile-view .header-spacer {
+    width: 40px;
+    flex-shrink: 0;
+}
+
+.mobile-view .favorites-title {
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+}
+
+/* Tabs */
+.mobile-view .fav-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--app-border-light);
+    padding: 0 20px;
+    margin-bottom: 16px;
+}
+
+.mobile-view .fav-tab {
+    flex: 1;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    position: relative;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.mobile-view .fav-tab.active {
+    color: var(--app-primary);
+}
+
+.mobile-view .fav-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: var(--app-primary);
+    border-radius: 3px 3px 0 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.mobile-view .fav-tab.active::after {
+    transform: scaleX(1);
+}
+
+/* List Container */
+.mobile-view .favorites-list {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Fav Card */
+.mobile-view .fav-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: var(--app-bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--app-border-light);
+    box-shadow: 0 4px 12px var(--app-shadow);
+    transition: transform 0.2s ease;
+}
+
+.mobile-view .fav-card:active {
+    transform: scale(0.98);
+}
+
+.mobile-view .fav-card.unavailable {
+    opacity: 0.7;
+}
+
+.mobile-view .fav-card-image-wrap {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.mobile-view .fav-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobile-view .fav-heart-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF6B6B;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.mobile-view .sold-out-tag {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.mobile-view .fav-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.mobile-view .fav-card-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mobile-view .fav-card-sub {
+    font-size: 13px;
+    color: var(--app-text-secondary);
+    margin: 0;
+}
+
+.mobile-view .fav-card-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin-top: 4px;
+}
+
+.mobile-view .fav-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin-top: 4px;
+}
+
+.mobile-view .fav-card-rating ion-icon {
+    color: #FFB300;
+    font-size: 14px;
+}
+
+.mobile-view .fav-card-action {
+    flex-shrink: 0;
+}
+
+.mobile-view .order-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid var(--app-primary);
+    border-radius: 12px;
+    color: var(--app-primary);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mobile-view .order-btn:active {
+    background: var(--app-primary);
+    color: white;
+}
+
+.mobile-view .unavailable-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--app-text-muted);
+    text-transform: uppercase;
+}
+
+.mobile-view .empty-fav-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.mobile-view .empty-fav-state ion-icon {
+    font-size: 48px;
+    color: var(--app-text-muted);
+    opacity: 0.4;
+    margin-bottom: 16px;
+}
+
+.mobile-view .empty-fav-state h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 8px 0;
+}
+
+.mobile-view .empty-fav-state p {
+    font-size: 14px;
+    color: var(--app-text-secondary);
+    margin: 0;
+}
+
+/* ============================================
+   DESKTOP VIEW STYLES
+   ============================================ */
+
+/* Desktop Navbar */
+.desktop-view .desktop-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--app-bg-card);
+    border-bottom: 1px solid var(--app-border-light);
+    box-shadow: 0 2px 8px var(--app-shadow);
+}
+
+.desktop-view .navbar-content {
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    gap: 32px;
+}
+
+.desktop-view .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.desktop-view .location-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 200px;
+}
+
+.desktop-view .location-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.desktop-view .location-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.desktop-view .location-icon {
+    font-size: 20px;
+    color: var(--app-primary);
+}
+
+.desktop-view .location-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+}
+
+.desktop-view .chevron-icon {
+    font-size: 16px;
+    color: var(--app-text-muted);
+}
+
+/* Nav Tabs */
+.desktop-view .nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--app-bg-elevated);
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.desktop-view .nav-tab {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.desktop-view .nav-tab:hover {
+    color: var(--app-text-primary);
+}
+
+.desktop-view .nav-tab.active {
+    background: var(--app-bg-card);
+    color: var(--app-text-primary);
+    box-shadow: 0 2px 8px var(--app-shadow);
+}
+
+/* Navbar Search */
+.desktop-view .navbar-search {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.desktop-view .navbar-search .search-icon {
+    position: absolute;
+    left: 16px;
+    font-size: 20px;
+    color: var(--app-text-muted);
+}
+
+.desktop-view .navbar-search input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border: none;
+    border-radius: 12px;
+    background: var(--app-bg-elevated);
+    font-size: 14px;
+    color: var(--app-text-primary);
+    outline: none;
+    transition: all 0.2s;
+}
+
+.desktop-view .navbar-search input::placeholder {
+    color: var(--app-text-muted);
+}
+
+.desktop-view .navbar-search input:focus {
+    box-shadow: 0 0 0 2px var(--app-primary);
+    background: var(--app-bg-card);
+}
+
+/* Navbar Right */
+.desktop-view .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
+}
+
+.desktop-view .notification-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.desktop-view .notification-btn:hover {
+    background: var(--app-bg-elevated);
+}
+
+.desktop-view .notification-btn ion-icon {
+    font-size: 24px;
+    color: var(--app-text-secondary);
+}
+
+.desktop-view .notification-dot {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    background: var(--app-danger);
+    border-radius: 50%;
+    border: 2px solid var(--app-bg-card);
+}
+
+.desktop-view .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.desktop-view .user-profile:hover {
+    background: var(--app-bg-elevated);
+}
+
+.desktop-view .user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--app-primary);
+}
+
+.desktop-view .user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.desktop-view .user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+}
+
+.desktop-view .user-level {
+    font-size: 12px;
+    color: var(--app-text-muted);
+}
+
+/* Desktop 2-Column Layout */
+.desktop-favorites-container {
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* Favorites Sidebar */
+.favorites-sidebar {
+    position: sticky;
+    top: 112px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Collections Card */
+.collections-card {
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid var(--app-border-light);
+}
+
+.collections-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 20px 0;
+}
+
+.collections-title ion-icon {
+    font-size: 24px;
+    color: var(--app-primary);
+}
+
+.collections-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.collections-list li {
+    margin-bottom: 4px;
+}
+
+.collection-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.collection-item:hover {
+    background: var(--app-bg-elevated);
+}
+
+.collection-item.active {
+    background: rgba(255, 138, 0, 0.1);
+}
+
+.collection-item.active,
+.collection-item.active .collection-left {
+    color: var(--app-primary);
+}
+
+.collection-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--app-text-secondary);
+}
+
+.collection-left ion-icon {
+    font-size: 20px;
+}
+
+.collection-count {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    padding: 2px 8px;
+}
+
+.collection-count.primary {
+    background: var(--app-primary);
+    color: white;
+    border-radius: 12px;
+}
+
+.create-list-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 14px;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-primary);
+    cursor: pointer;
+}
+
+.create-list-btn:hover {
+    text-decoration: underline;
+}
+
+.create-list-btn ion-icon {
+    font-size: 16px;
+}
+
+/* Discover Card */
+.discover-card {
+    background: linear-gradient(135deg, rgba(255, 138, 0, 0.15), var(--app-bg-card));
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid rgba(255, 138, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.discover-content {
+    position: relative;
+    z-index: 1;
+}
+
+.discover-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 8px 0;
+}
+
+.discover-card p {
+    font-size: 14px;
+    color: var(--app-text-secondary);
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+.discover-btn {
+    padding: 10px 20px;
+    background: var(--app-primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px var(--app-primary-glow);
+}
+
+.discover-btn:hover {
+    background: #e67e00;
+}
+
+.discover-decoration {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    font-size: 100px;
+    opacity: 0.1;
+    transform: rotate(12deg);
+}
+
+/* Main Content */
+.favorites-main-content {
+    min-width: 0;
+}
+
+/* Desktop Header */
+.favorites-header-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.header-text h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 8px 0;
+}
+
+.header-text p {
+    font-size: 14px;
+    color: var(--app-text-muted);
+    margin: 0;
+}
+
+.desktop-tabs {
+    display: flex;
+    background: var(--app-bg-elevated);
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.desktop-tab {
+    padding: 12px 28px;
+    border-radius: 10px;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.desktop-tab.active {
+    background: var(--app-bg-card);
+    color: var(--app-primary);
+    box-shadow: 0 2px 8px var(--app-shadow);
+}
+
+/* Sections */
+.favorites-section {
+    margin-bottom: 32px;
+}
+
+.section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header-flex h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+}
+
+.section-header-flex h2 ion-icon {
+    font-size: 22px;
+    color: var(--app-primary);
+}
+
+.sort-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.sort-dropdown span {
+    color: var(--app-text-muted);
+}
+
+.sort-dropdown select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    cursor: pointer;
+    outline: none;
+}
+
+.view-all-link {
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-primary);
+    cursor: pointer;
+}
+
+.view-all-link:hover {
+    text-decoration: underline;
+}
+
+/* Dishes Grid */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.dish-card-desktop {
+    display: flex;
+    gap: 16px;
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    padding: 16px;
+    border: 1px solid var(--app-border-light);
+    transition: all 0.2s;
+}
+
+.dish-card-desktop:hover {
+    border-color: var(--app-primary);
+}
+
+.dish-card-desktop.sold-out {
+    opacity: 0.7;
+}
+
+.dish-image-wrap {
+    width: 112px;
+    height: 112px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.dish-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.dish-card-desktop:hover .dish-image-wrap img {
+    transform: scale(1.1);
+}
+
+.dish-card-desktop.sold-out .dish-image-wrap img {
+    filter: grayscale(1);
+}
+
+.fav-btn-overlay {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF6B6B;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.fav-btn-overlay:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.sold-out-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sold-out-overlay span {
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dish-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+.dish-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 4px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.dish-restaurant {
+    font-size: 13px;
+    color: var(--app-text-muted);
+    margin: 0 0 8px 0;
+}
+
+.dish-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+}
+
+.order-again-btn {
+    align-self: flex-end;
+    padding: 8px 16px;
+    background: rgba(255, 138, 0, 0.1);
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--app-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.order-again-btn:hover {
+    background: var(--app-primary);
+    color: white;
+}
+
+.unavailable-btn {
+    align-self: flex-end;
+    padding: 8px 16px;
+    background: var(--app-bg-elevated);
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--app-text-muted);
+    cursor: not-allowed;
+}
+
+/* Divider */
+.section-divider {
+    height: 1px;
+    background: var(--app-border-light);
+    margin: 32px 0;
+}
+
+/* Restaurants Grid */
+.restaurants-grid-desktop {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+}
+
+.restaurant-card-desktop {
+    display: flex;
+    gap: 20px;
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    padding: 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.restaurant-card-desktop:hover {
+    box-shadow: 0 12px 32px var(--app-shadow);
+    border-color: var(--app-border-light);
+}
+
+.restaurant-image-wrap {
+    width: 128px;
+    height: 128px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.restaurant-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.restaurant-card-desktop:hover .restaurant-image-wrap img {
+    transform: scale(1.05);
+}
+
+.restaurant-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0;
+}
+
+.restaurant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.restaurant-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 4px 0;
+}
+
+.restaurant-cuisine {
+    font-size: 13px;
+    color: var(--app-text-muted);
+    margin: 0;
+}
+
+.rating-chip {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--app-bg-elevated);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+}
+
+.rating-chip .star-icon {
+    color: #FFB300;
+}
+
+.restaurant-meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.restaurant-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--app-text-muted);
+}
+
+.restaurant-meta ion-icon {
+    font-size: 14px;
+}
+
+.view-menu-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--app-bg-elevated);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: auto;
+}
+
+.view-menu-btn:hover {
+    background: var(--app-primary);
+    color: white;
+}
+
+/* Dark Mode */
+body.dark .fav-btn-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+body.dark .mobile-view .fav-heart-btn {
+    background: rgba(0, 0, 0, 0.6);
+    color: #FF8A8A;
+}

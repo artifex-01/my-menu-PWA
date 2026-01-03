@@ -1,0 +1,81 @@
+/* ========================================
+   Global Responsive Layout
+   ======================================== */
+
+/* Desktop breakpoint: shift main content for sidebar */
+@media (min-width: 1024px) {
+
+    /* Main content container offset */
+    ion-page,
+    ion-content,
+    .home-content,
+    .search-content,
+    .favorites-content,
+    .profile-content,
+    .orders-content {
+        margin-left: var(--sidebar-width);
+    }
+
+    /* Prevent double margin on nested content */
+    ion-page ion-content {
+        margin-left: 0;
+    }
+}
+
+/* Tablet: center content with max-width */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .home-scroll-container,
+    .search-content>div,
+    .favorites-content>div,
+    .profile-content>div {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+}
+
+/* Desktop: enhanced grid layouts */
+@media (min-width: 1024px) {
+
+    /* Nearby restaurants grid layout */
+    .restaurants-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+    }
+
+    /* Restaurant cards fill grid properly */
+    .restaurant-card-list {
+        margin-bottom: 0;
+    }
+
+    /* Content area max-width for readability */
+    .home-scroll-container {
+        max-width: 1200px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    /* Slideshow larger on desktop */
+    .slide-image-wrapper {
+        height: 320px;
+    }
+
+    /* Wider search bar */
+    .search-wrapper {
+        max-width: 600px;
+    }
+
+    /* QR Card scales better */
+    .qr-hero-card {
+        max-width: 600px;
+        margin-left: 20px;
+    }
+}
+
+/* Large desktop: 3-column grid */
+@media (min-width: 1400px) {
+    .restaurants-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

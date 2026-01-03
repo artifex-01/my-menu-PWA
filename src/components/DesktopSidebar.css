@@ -1,0 +1,142 @@
+/* Desktop Sidebar Navigation */
+
+.desktop-sidebar {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    background: var(--app-bg-card);
+    border-right: 1px solid var(--app-border-light);
+    padding: 24px 16px;
+    flex-direction: column;
+    z-index: 100;
+}
+
+/* Show only on desktop */
+@media (min-width: 1024px) {
+    .desktop-sidebar {
+        display: flex;
+    }
+}
+
+/* Logo */
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    margin-bottom: 32px;
+}
+
+.logo-icon {
+    font-size: 32px;
+    color: var(--app-primary);
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--app-text-primary);
+    letter-spacing: -0.5px;
+}
+
+/* Navigation */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.sidebar-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.sidebar-nav-item ion-icon {
+    font-size: 22px;
+}
+
+.sidebar-nav-item:hover {
+    background: var(--app-bg-elevated);
+    color: var(--app-text-primary);
+}
+
+.sidebar-nav-item.active {
+    background: var(--app-primary-light);
+    color: var(--app-primary);
+}
+
+.sidebar-nav-item.active ion-icon {
+    color: var(--app-primary);
+}
+
+/* Scan Button Special Style */
+.sidebar-nav-item.scan-btn {
+    background: linear-gradient(135deg, var(--app-gradient-start), var(--app-gradient-end));
+    color: white;
+    margin: 8px 0;
+    box-shadow: 0 4px 16px var(--app-primary-glow);
+}
+
+.sidebar-nav-item.scan-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--app-primary-glow);
+}
+
+.sidebar-nav-item.scan-btn ion-icon {
+    color: white;
+}
+
+/* User Profile */
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--app-bg-elevated);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sidebar-user:hover {
+    background: var(--app-bg-surface);
+}
+
+.sidebar-user .user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--app-primary);
+}
+
+.sidebar-user .user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-user .user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+}
+
+.sidebar-user .user-level {
+    font-size: 12px;
+    color: var(--app-text-muted);
+}

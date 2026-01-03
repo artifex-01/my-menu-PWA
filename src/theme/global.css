@@ -1,0 +1,558 @@
+/* Global styles for My Menu App - Auto Theme Support */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Smooth theme transitions */
+*,
+*::before,
+*::after {
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Typography */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Roboto',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--app-bg-primary);
+    color: var(--app-text-primary);
+}
+
+/* ================================
+   RESPONSIVE LAYOUT SYSTEM
+   ================================ */
+
+/* Layout Variables */
+:root {
+    --sidebar-width: 220px;
+    --content-max-width: 430px;
+    --app-desktop-bg: #1a1a2e;
+}
+
+/* ================================
+   APP SHELL - Base Layout
+   ================================ */
+.app-shell {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    background: var(--app-bg-primary);
+}
+
+/* Main Content Area - Mobile First */
+.main-content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+/* ================================
+   MOBILE VIEW (< 768px)
+   ================================ */
+@media (max-width: 767px) {
+    .app-shell {
+        background: var(--app-bg-primary);
+    }
+
+    .main-content-area {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Ensure ion-page takes full width on mobile */
+    .main-content-area>ion-page,
+    .main-content-area>.ion-page {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ================================
+   DESKTOP VIEW (≥ 1024px)
+   ============================================ */
+@media (min-width: 1024px) {
+
+    /* Background */
+    .app-shell {
+        background: var(--app-bg-primary);
+    }
+
+    /* Full width content area */
+    .main-content-area {
+        margin-left: 0;
+        width: 100%;
+        display: block;
+        background: var(--app-bg-primary);
+    }
+
+    /* Full width pages on desktop */
+    .main-content-area>ion-page,
+    .main-content-area>.ion-page {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 100vh;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin: 0;
+        background: var(--app-bg-primary);
+        box-shadow: none;
+        border: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+/* ================================
+   TABLET VIEW (768px - 1023px)
+   ================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .app-shell {
+        background: var(--app-desktop-bg);
+    }
+
+    .main-content-area {
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        background: transparent;
+    }
+
+    .main-content-area>ion-page,
+    .main-content-area>.ion-page {
+        width: var(--content-max-width) !important;
+        max-width: var(--content-max-width) !important;
+        min-height: 100vh;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+        margin: 0 auto;
+        background: var(--app-bg-primary);
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.4);
+        border-left: 1px solid var(--app-border-light);
+        border-right: 1px solid var(--app-border-light);
+    }
+
+    /* ================================
+       HIDE ORDERING ELEMENTS ON DESKTOP
+       ================================ */
+
+    /* Hide Scan Table QR card */
+    body .qr-hero-card,
+    .home-scroll-container .qr-hero-card {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
+    }
+
+    /* Hide cart footer/order button on restaurant detail page */
+    .order-footer {
+        display: none !important;
+    }
+
+    /* Hide add-to-cart buttons */
+    body .add-btn,
+    body .qty-controls,
+    .menu-item-card .add-btn,
+    .menu-item-card .qty-controls {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* Hide Order button on favorites */
+    body .fav-order-btn,
+    body .fav-card-action .order-btn,
+    .fav-card .order-btn {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* Hide price displays for ordering */
+    .item-price {
+        display: none !important;
+    }
+
+    /* Hide the Orders tab in profile menu */
+    .order-history-link {
+        display: none !important;
+    }
+}
+
+/* Hide scrollbar globally - all browsers */
+* {
+    scrollbar-width: none !important;
+    /* Firefox */
+    -ms-overflow-style: none !important;
+    /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+html,
+body,
+ion-content,
+ion-app,
+.ion-page,
+.scroll-content {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    overflow: -moz-scrollbars-none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+ion-content::-webkit-scrollbar,
+ion-app::-webkit-scrollbar,
+.ion-page::-webkit-scrollbar,
+.scroll-content::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Card styles */
+.card {
+    background: var(--app-bg-card);
+    border-radius: 16px;
+    border: 1px solid var(--app-border-light);
+    box-shadow: 0 2px 8px var(--app-shadow);
+}
+
+/* Gradient button */
+.gradient-btn {
+    background: linear-gradient(180deg, var(--app-gradient-start), var(--app-gradient-end));
+    border: none;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 16px var(--app-primary-glow);
+}
+
+/* Rating badge */
+.rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background: var(--app-rating-bg);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--app-text-primary);
+}
+
+/* Veg/Non-veg indicator */
+.veg-indicator {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--app-success);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.veg-indicator::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--app-success);
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes indicatorPop {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Press animation */
+.press-effect {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.press-effect:active {
+    transform: scale(0.97);
+}
+
+/* Safe area padding */
+.safe-area-top {
+    padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.layout-bottom-spacer {
+    height: var(--app-nav-height);
+    margin-bottom: env(safe-area-inset-bottom);
+}
+
+/* Hide bottom spacer on desktop (no bottom nav) */
+@media (min-width: 768px) {
+    .layout-bottom-spacer {
+        height: 24px;
+        margin-bottom: 0;
+    }
+}
+
+/* IonContent customization */
+ion-content {
+    --background: var(--app-bg-primary);
+}
+
+/* Remove default Ionic tab bar - we use custom */
+ion-tab-bar {
+    display: none !important;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--app-primary);
+    outline-offset: 2px;
+}
+
+/* Custom Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.2s ease;
+}
+
+@media (min-width: 768px) {
+    .modal-overlay {
+        align-items: center;
+    }
+}
+
+/* Rating Modal Shared Styles */
+.rating-modal {
+    width: 100%;
+    max-width: 400px;
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    padding: 24px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 32px var(--app-shadow-md);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.rating-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: var(--app-text-muted);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.rating-close:hover {
+    background: var(--app-bg-elevated);
+}
+
+.rating-header {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 24px 0;
+}
+
+.rating-question {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 4px 0;
+}
+
+.rating-order-id {
+    text-align: center;
+    font-size: 13px;
+    color: var(--app-text-muted);
+    margin: 0 0 24px 0;
+}
+
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.rating-stars .star {
+    font-size: 40px;
+    color: var(--app-border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rating-stars .star.filled {
+    color: #f97316;
+    transform: scale(1.1);
+}
+
+.rating-label {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-primary);
+    height: 20px;
+    margin-bottom: 24px;
+}
+
+.feedback-question {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin-bottom: 12px;
+}
+
+.feedback-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.feedback-tag {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--app-border);
+    background: transparent;
+    font-size: 13px;
+    color: var(--app-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.feedback-tag.selected {
+    background: var(--app-primary-light);
+    border-color: var(--app-primary);
+    color: var(--app-primary);
+}
+
+.feedback-note {
+    width: 100%;
+    height: 100px;
+    background: var(--app-bg-elevated);
+    border: 1px solid var(--app-border);
+    border-radius: 12px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--app-text-primary);
+    resize: none;
+    margin-bottom: 20px;
+}
+
+.feedback-note:focus {
+    outline: none;
+    border-color: var(--app-primary);
+}
+
+.submit-feedback-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--app-primary);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submit-feedback-btn:active {
+    transform: scale(0.98);
+}

@@ -1,17 +1,31 @@
+# Dependencies
 node_modules/
-.expo/
+
+# Build output
 dist/
-web-build/
+build/
+
+# Vite
+*.local
+
+# IDE
 .idea/
 .vscode/
+*.swp
+*.swo
+
+# Logs
 *.log
-*.jks
-*.keystore
-*.p12
-*.key
-android/app/debug.keystore
-android/.gradle
-android/build
-android/app/build
-ios/Pods/
-ios/build/
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PWA
+dev-dist/

@@ -1,0 +1,382 @@
+/* My Reviews Page Styles */
+
+.reviews-page-content {
+    --background: var(--app-bg-primary);
+}
+
+.reviews-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 24px;
+    padding-top: calc(20px + env(safe-area-inset-top));
+    gap: 16px;
+}
+
+.reviews-back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--app-bg-surface);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--app-text-primary);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.reviews-title {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+    text-align: center;
+}
+
+.header-spacer {
+    width: 40px;
+}
+
+.reviews-list {
+    padding: 0 20px;
+    padding-bottom: 100px;
+}
+
+/* Review Card */
+.review-card {
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--app-border-light);
+    position: relative;
+    animation: fadeSlideUp 0.4s ease backwards;
+}
+
+.review-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.review-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Restaurant Info Row */
+.review-restaurant-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.review-restaurant-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.review-restaurant-info {
+    flex: 1;
+}
+
+.review-restaurant-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 4px 0;
+}
+
+.review-date {
+    font-size: 12px;
+    color: var(--app-text-muted);
+}
+
+/* Delete Button */
+.review-delete-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FEF2F2;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #EF4444;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.review-delete-btn:active {
+    transform: scale(0.9);
+    background: #FEE2E2;
+}
+
+/* Action Buttons Group */
+.review-action-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.review-edit-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #F0F9FF;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0EA5E9;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.review-edit-btn:active {
+    transform: scale(0.9);
+    background: #E0F2FE;
+}
+
+/* Edit Modal */
+.edit-review-modal {
+    --width: 100%;
+    --height: 100%;
+    --border-radius: 0;
+}
+
+.edit-modal-content {
+    padding: 24px;
+    padding-top: calc(24px + env(safe-area-inset-top));
+    background: var(--app-bg-primary);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.edit-modal-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+}
+
+.close-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--app-bg-surface);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--app-text-primary);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.edit-restaurant-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--app-bg-card);
+    border-radius: 16px;
+}
+
+.edit-restaurant-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.edit-restaurant-info span {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+}
+
+.edit-rating-section,
+.edit-text-section {
+    margin-bottom: 24px;
+}
+
+.edit-rating-section label,
+.edit-text-section label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--app-text-secondary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.edit-stars {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-stars .review-star {
+    font-size: 32px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.edit-stars .review-star:active {
+    transform: scale(1.2);
+}
+
+.edit-text-section textarea {
+    width: 100%;
+    padding: 16px;
+    background: var(--app-bg-card);
+    border: 1px solid var(--app-border-light);
+    border-radius: 16px;
+    font-size: 15px;
+    color: var(--app-text-primary);
+    resize: none;
+    font-family: inherit;
+    line-height: 1.5;
+}
+
+.edit-text-section textarea:focus {
+    outline: none;
+    border-color: var(--app-primary);
+}
+
+.save-edit-btn {
+    margin-top: auto;
+    width: 100%;
+    padding: 18px;
+    background: var(--app-primary);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px var(--app-primary-glow);
+    transition: transform 0.2s;
+}
+
+.save-edit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Rating Row */
+.review-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.review-star {
+    color: #FFB300;
+    font-size: 16px;
+}
+
+.review-star.empty {
+    color: var(--app-border-light);
+}
+
+/* Review Text */
+.review-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--app-text-secondary);
+    margin: 0 0 16px 0;
+}
+
+/* Review Images */
+.review-images {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.review-image-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Empty State */
+.empty-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.empty-icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--app-bg-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.empty-icon-circle ion-icon {
+    font-size: 36px;
+    color: var(--app-text-muted);
+}
+
+.empty-reviews h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 8px 0;
+}
+
+.empty-reviews p {
+    font-size: 14px;
+    color: var(--app-text-secondary);
+    margin: 0;
+    max-width: 260px;
+}
+
+/* Delete Confirmation Alert */
+.delete-confirm-alert {
+    --background: var(--app-bg-card);
+    --backdrop-opacity: 0.5;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    .review-delete-btn {
+        background: rgba(239, 68, 68, 0.15);
+    }
+}

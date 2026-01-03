@@ -1,0 +1,934 @@
+/* Search/Explore Page - Mobile + Desktop */
+
+.search-content {
+    --background: var(--app-bg-primary);
+}
+
+/* ============================================
+   SHOW/HIDE VIEWS BASED ON SCREEN SIZE
+   ============================================ */
+.mobile-view {
+    display: block;
+}
+
+.desktop-view {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .mobile-view {
+        display: none !important;
+    }
+
+    .desktop-view {
+        display: block !important;
+    }
+}
+
+/* ============================================
+   MOBILE VIEW STYLES (Unchanged)
+   ============================================ */
+
+/* Header */
+.mobile-view .search-header {
+    padding: calc(16px + env(safe-area-inset-top)) 20px 12px;
+}
+
+.mobile-view .delivering-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    letter-spacing: 1px;
+    display: block;
+}
+
+.mobile-view .location-row {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.mobile-view .location-icon {
+    font-size: 16px;
+    color: var(--app-primary);
+}
+
+.mobile-view .location-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin: 0 6px;
+}
+
+.mobile-view .chevron-icon {
+    font-size: 16px;
+    color: var(--app-text-secondary);
+}
+
+/* Search Bar */
+.mobile-view .search-bar-container {
+    padding: 8px 10px 20px;
+}
+
+.mobile-view .custom-searchbar {
+    --background: #FFFFFF;
+    --border-radius: 50px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --placeholder-color: #666;
+    --color: #000;
+    --icon-color: #000;
+    padding: 0;
+    height: 52px;
+    border: 2px solid #000000;
+}
+
+.mobile-view .custom-searchbar .searchbar-input-container {
+    height: 100%;
+}
+
+.mobile-view .custom-searchbar input {
+    font-size: 15px;
+    font-weight: 600 !important;
+}
+
+/* Section Header */
+.mobile-view .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px 12px;
+}
+
+.mobile-view .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin: 0;
+}
+
+.mobile-view .clear-button,
+.mobile-view .see-all-button {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--app-primary);
+    cursor: pointer;
+}
+
+/* Recent Searches */
+.mobile-view .recent-searches-list {
+    padding: 0 20px;
+}
+
+.mobile-view .recent-search-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--app-border-light);
+    background: transparent;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.mobile-view .recent-search-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--app-bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    border: 1px solid var(--app-border-light);
+}
+
+.mobile-view .recent-search-icon ion-icon {
+    font-size: 18px;
+    color: var(--app-text-muted);
+}
+
+.mobile-view .recent-search-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-view .recent-search-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--app-text-primary);
+}
+
+.mobile-view .recent-search-subtext {
+    font-size: 12px;
+    color: var(--app-text-muted);
+    margin-top: 2px;
+}
+
+.mobile-view .arrow-icon {
+    font-size: 18px;
+    color: var(--app-border);
+    transform: rotate(45deg);
+}
+
+/* Cuisine Grid */
+.mobile-view .cuisine-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 0 20px 20px;
+}
+
+.mobile-view .cuisine-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.mobile-view .cuisine-image-container {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--app-bg-card);
+    box-shadow: 0 4px 12px var(--app-shadow);
+    border: 1px solid var(--app-border-light);
+}
+
+.mobile-view .cuisine-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobile-view .cuisine-name {
+    font-size: 12px;
+    color: var(--app-text-secondary);
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Trending List */
+.mobile-view .trending-list {
+    padding: 0 20px 120px;
+}
+
+.mobile-view .trending-card {
+    display: flex;
+    background: var(--app-bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 1px solid var(--app-border-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px var(--app-shadow);
+}
+
+.mobile-view .trending-card:hover {
+    background: var(--app-bg-elevated);
+    transform: translateX(4px);
+}
+
+.mobile-view .trending-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.mobile-view .trending-content {
+    flex: 1;
+    padding: 12px 14px;
+}
+
+.mobile-view .trending-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin: 0;
+}
+
+.mobile-view .trending-cuisine {
+    font-size: 12px;
+    color: var(--app-text-muted);
+    margin: 4px 0 8px 0;
+}
+
+.mobile-view .rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    background: var(--app-rating-bg);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--app-text-primary);
+}
+
+.mobile-view .meta-text {
+    font-size: 12px;
+    color: var(--app-text-muted);
+}
+
+.mobile-view .layout-bottom-spacer {
+    height: 100px;
+}
+
+/* ============================================
+   DESKTOP VIEW STYLES
+   ============================================ */
+
+/* Desktop Navbar - Same as HomePage */
+.desktop-view .desktop-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--app-bg-card);
+    border-bottom: 1px solid var(--app-border-light);
+    box-shadow: 0 2px 8px var(--app-shadow);
+}
+
+.desktop-view .navbar-content {
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    gap: 32px;
+}
+
+.desktop-view .navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.desktop-view .location-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 200px;
+}
+
+.desktop-view .location-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.desktop-view .location-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.desktop-view .location-icon {
+    font-size: 20px;
+    color: var(--app-primary);
+}
+
+.desktop-view .location-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+}
+
+.desktop-view .chevron-icon {
+    font-size: 16px;
+    color: var(--app-text-muted);
+}
+
+/* Nav Tabs */
+.desktop-view .nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--app-bg-elevated);
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.desktop-view .nav-tab {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.desktop-view .nav-tab:hover {
+    color: var(--app-text-primary);
+}
+
+.desktop-view .nav-tab.active {
+    background: var(--app-bg-card);
+    color: var(--app-text-primary);
+    box-shadow: 0 2px 8px var(--app-shadow);
+}
+
+/* Navbar Search */
+.desktop-view .navbar-search {
+    flex: 1;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.desktop-view .navbar-search .search-icon {
+    position: absolute;
+    left: 16px;
+    font-size: 20px;
+    color: var(--app-text-muted);
+}
+
+.desktop-view .navbar-search input {
+    width: 100%;
+    padding: 14px 16px 14px 48px;
+    border: none;
+    border-radius: 12px;
+    background: var(--app-bg-elevated);
+    font-size: 14px;
+    color: var(--app-text-primary);
+    outline: none;
+    transition: all 0.2s;
+}
+
+.desktop-view .navbar-search input::placeholder {
+    color: var(--app-text-muted);
+}
+
+.desktop-view .navbar-search input:focus {
+    box-shadow: 0 0 0 2px var(--app-primary);
+    background: var(--app-bg-card);
+}
+
+/* Navbar Right */
+.desktop-view .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
+}
+
+.desktop-view .notification-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.desktop-view .notification-btn:hover {
+    background: var(--app-bg-elevated);
+}
+
+.desktop-view .notification-btn ion-icon {
+    font-size: 24px;
+    color: var(--app-text-secondary);
+}
+
+.desktop-view .notification-dot {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    background: var(--app-danger);
+    border-radius: 50%;
+    border: 2px solid var(--app-bg-card);
+}
+
+.desktop-view .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.desktop-view .user-profile:hover {
+    background: var(--app-bg-elevated);
+}
+
+.desktop-view .user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--app-primary);
+}
+
+.desktop-view .user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.desktop-view .user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+}
+
+.desktop-view .user-level {
+    font-size: 12px;
+    color: var(--app-text-muted);
+}
+
+/* Desktop 2-Column Grid */
+.desktop-grid-explore {
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+}
+
+/* Sidebar */
+.desktop-view .left-sidebar {
+    position: relative;
+}
+
+.desktop-view .sticky-sidebar {
+    position: sticky;
+    top: 112px;
+}
+
+.desktop-view .sidebar-card {
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid var(--app-border-light);
+}
+
+.desktop-view .sidebar-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 24px 0;
+}
+
+.desktop-view .sidebar-title ion-icon {
+    font-size: 20px;
+    color: var(--app-primary);
+}
+
+.desktop-view .reset-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 12px;
+    color: var(--app-primary);
+    cursor: pointer;
+}
+
+.desktop-view .reset-btn:hover {
+    text-decoration: underline;
+}
+
+.desktop-view .filter-group {
+    margin-bottom: 20px;
+}
+
+.desktop-view .filter-group h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    margin: 0 0 12px 0;
+}
+
+.desktop-view .filter-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--app-text-secondary);
+    transition: all 0.2s;
+}
+
+.desktop-view .filter-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--app-primary);
+    cursor: pointer;
+}
+
+.desktop-view .filter-option:hover {
+    color: var(--app-text-primary);
+}
+
+.desktop-view .filter-option:hover span {
+    transform: translateX(4px);
+}
+
+.desktop-view .filter-option span {
+    transition: transform 0.2s;
+}
+
+.desktop-view .see-more-link {
+    background: none;
+    border: none;
+    color: var(--app-primary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding-left: 30px;
+    margin-top: 4px;
+}
+
+.desktop-view .see-more-link:hover {
+    text-decoration: underline;
+}
+
+.desktop-view .filter-divider {
+    height: 1px;
+    background: var(--app-border-light);
+    margin: 20px 0;
+}
+
+.desktop-view .apply-filters-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--app-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px var(--app-primary-glow);
+}
+
+.desktop-view .apply-filters-btn:hover {
+    background: #e67e00;
+}
+
+.desktop-view .apply-filters-btn:active {
+    transform: scale(0.98);
+}
+
+/* Main Content */
+.desktop-view .main-content-explore {
+    min-width: 0;
+}
+
+.desktop-view .explore-section {
+    margin-bottom: 40px;
+}
+
+.desktop-view .section-header-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.desktop-view .section-header-desktop h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.desktop-view .nav-arrows {
+    display: flex;
+    gap: 8px;
+}
+
+.desktop-view .nav-arrows button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--app-bg-card);
+    border: 1px solid var(--app-border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.desktop-view .nav-arrows button ion-icon {
+    font-size: 20px;
+    color: var(--app-text-muted);
+}
+
+.desktop-view .nav-arrows button:hover {
+    border-color: var(--app-primary);
+}
+
+.desktop-view .nav-arrows button:hover ion-icon {
+    color: var(--app-primary);
+}
+
+.desktop-view .see-all-link {
+    background: none;
+    border: none;
+    color: var(--app-primary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.desktop-view .see-all-link:hover {
+    text-decoration: underline;
+}
+
+/* Cuisine Grid Desktop */
+.desktop-view .cuisine-grid-desktop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+@media (min-width: 1400px) {
+    .desktop-view .cuisine-grid-desktop {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+.desktop-view .cuisine-card-desktop {
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.desktop-view .cuisine-card-desktop:hover {
+    background: var(--app-bg-elevated);
+    border-color: var(--app-border-light);
+}
+
+.desktop-view .cuisine-image-round {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 16px var(--app-shadow);
+    margin-bottom: 12px;
+    transition: transform 0.3s;
+}
+
+.desktop-view .cuisine-card-desktop:hover .cuisine-image-round {
+    transform: scale(1.1);
+}
+
+.desktop-view .cuisine-image-round img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.desktop-view .cuisine-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--app-text-primary);
+    transition: color 0.2s;
+}
+
+.desktop-view .cuisine-card-desktop:hover .cuisine-label {
+    color: var(--app-primary);
+}
+
+/* Trending List Desktop */
+.desktop-view .trending-list-desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.desktop-view .trending-card-desktop {
+    display: flex;
+    gap: 16px;
+    background: var(--app-bg-card);
+    border-radius: 20px;
+    padding: 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.desktop-view .trending-card-desktop:hover {
+    background: var(--app-bg-elevated);
+    border-color: var(--app-border-light);
+}
+
+.desktop-view .trending-image-wrap {
+    width: 128px;
+    height: 128px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.desktop-view .trending-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.desktop-view .trending-card-desktop:hover .trending-image-wrap img {
+    transform: scale(1.05);
+}
+
+.desktop-view .trending-body {
+    flex: 1;
+    padding: 4px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.desktop-view .trending-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.desktop-view .trending-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+    margin: 0 0 4px 0;
+    transition: color 0.2s;
+}
+
+.desktop-view .trending-card-desktop:hover .trending-header h3 {
+    color: var(--app-primary);
+}
+
+.desktop-view .trending-meta {
+    font-size: 13px;
+    color: var(--app-text-muted);
+    margin: 0;
+}
+
+.desktop-view .fav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.desktop-view .fav-btn ion-icon {
+    font-size: 22px;
+    color: var(--app-text-muted);
+}
+
+.desktop-view .fav-btn:hover {
+    background: var(--app-bg-surface);
+}
+
+.desktop-view .trending-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+}
+
+.desktop-view .rating-chip {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    background: var(--app-bg-elevated);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--app-text-primary);
+}
+
+.desktop-view .rating-chip .star {
+    color: #FFB300;
+}
+
+.desktop-view .reviews-count {
+    font-size: 13px;
+    color: var(--app-text-muted);
+}
+
+.desktop-view .trending-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--app-border-light);
+    margin-top: auto;
+}
+
+.desktop-view .delivery-time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--app-text-muted);
+}
+
+.desktop-view .delivery-time ion-icon {
+    font-size: 14px;
+}
+
+.desktop-view .offer-tag {
+    font-size: 12px;
+    color: var(--app-success);
+    font-weight: 500;
+}
+
+.desktop-view .delivery-fee {
+    font-size: 12px;
+    color: var(--app-text-muted);
+}
